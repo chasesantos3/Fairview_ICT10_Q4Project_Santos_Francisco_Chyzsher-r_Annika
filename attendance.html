@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Attendance Tracker</title>
+
+<link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css">
+<script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+
+<py-config>
+packages = ["numpy", "matplotlib"]
+</py-config>
+
+<style>
+body{
+font-family:Arial;
+background:linear-gradient(135deg,#ffb6d9,#fff3a3);
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+}
+.container{
+display:flex;
+gap:40px;
+}
+.box,.graph-box{
+background:white;
+padding:30px;
+border-radius:15px;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<div class="box">
+<h2>Attendance Tracker</h2>
+
+<select id="day">
+<option>Monday</option>
+<option>Tuesday</option>
+<option>Wednesday</option>
+<option>Thursday</option>
+<option>Friday</option>
+</select>
+
+<input type="number" id="absences">
+
+<button py-click="add_data">Submit</button>
+<button py-click="reset_data">Reset</button>
+
+<a href="index.html">Back Home</a>
+</div>
+
+<div class="graph-box">
+<div id="plot"></div>
+</div>
+
+</div>
+
+<py-script src="attendance.py"></py-script>
+
+</body>
+</html>

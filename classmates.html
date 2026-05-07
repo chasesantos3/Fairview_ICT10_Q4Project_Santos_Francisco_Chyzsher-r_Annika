@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Classmate List</title>
+<style>
+body{
+font-family:Arial;
+background:#f3f4f6;
+padding:30px;
+}
+.container{
+max-width:900px;
+margin:auto;
+background:rgb(255, 210, 243);
+padding:30px;
+border-radius:15px;
+}
+input{
+width:100%;
+padding:10px;
+margin:10px 0;
+}
+button{
+padding:12px;
+width:49%;
+border:none;
+color:white;
+cursor:pointer;
+}
+.add{background:rgb(255, 233, 146);}
+.show{background:rgb(255, 239, 181);}
+</style>
+</head>
+<body>
+
+<div class="container">
+<h1>Grade 10 Classmates System</h1>
+
+<input id="name" placeholder="Name">
+<input id="section" placeholder="Section">
+<input id="subject" placeholder="Favorite Subject">
+
+<button class="add" onclick="addMate()">Add Classmate</button>
+<button class="show" onclick="showList()">Show List</button>
+
+<div id="list"></div>
+
+<a href="index.html">Back Home</a>
+</div>
+
+<script>
+let classmates=[];
+
+function addMate(){
+let name=document.getElementById("name").value;
+let section=document.getElementById("section").value;
+let subject=document.getElementById("subject").value;
+
+classmates.push({name,section,subject});
+
+document.getElementById("name").value="";
+document.getElementById("section").value="";
+document.getElementById("subject").value="";
+}
+
+function showList(){
+document.getElementById("list").innerHTML=
+classmates.map(c=>`Hi! I am ${c.name} from ${c.section}. My favorite subject is ${c.subject}.`).join("<br>");
+}
+</script>
+
+</body>
+</html>
